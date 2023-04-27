@@ -1,7 +1,7 @@
 # FriendlyHost
 
 ## Git tutorial for developers
-[Tutorial](https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub)
+[Tutorial Video](https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub)
 
 Realizando uma contribuição, usando o Pull Request.
 
@@ -21,3 +21,7 @@ uso o "git checkout <nome da branch>" para entrar na branch. -> Melhor organiza�
 7 - Após o push, vai aparecer no git hub que a branch enviada é um candidato a realizar um pull request, esse repositório filho tem essa branch que o repositório pai não tem. Vai aparecer um botão "Compare & pull request", quando clicar ele irá até o repositório PAI para realizar um pull request. Vai pedir para dar um título e explicar o pq está fazendo esse pull request, após clicar em "Create pull request", a pessoa dona do projeto (repositório PAI) irá analisar o código e fazer um code review. Se estiver tudo ok, e for aprovado será feito um merge ou seja, todas as alterações feitas no repositório filho, fará parte do repositório pai.
 
 Ao decorrer que for feito novos commits nessa branch criada, não se faz necessário realizar um novo pull request, os commits ficarão no pull request já criado até a aprovação e realização do merge por parte do repositório pai.
+
+
+### MarkDown Tutorial Syntax
+[MarkDown Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
