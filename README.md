@@ -1,7 +1,7 @@
 # FriendlyHost
 
 ## Git tutorial for developers
-(Tutorial)[https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub]
+[Tutorial](https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub)
 
 Realizando uma contribuição, usando o Pull Request.
 
