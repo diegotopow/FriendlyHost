@@ -65,4 +65,5 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-orm/6.0.7/spring-orm-6.0.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-tx/6.0.7/spring-tx-6.0.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-aspects/6.0.7/spring-aspects-6.0.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/mysql/mysql-connector-j/8.0.32/mysql-connector-j-8.0.32.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>
