@@ -85,6 +85,5 @@ public class AlunoDTO {
 
 	public String getEstado() {
 		return estado;
-	}
-    
+	}   
 }

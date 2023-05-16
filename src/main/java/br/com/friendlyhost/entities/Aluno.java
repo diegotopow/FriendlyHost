@@ -22,7 +22,7 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAluno;
-	@Column(length = 50, nullable = false, unique = true)// Tamanho Max campo; Campo Obrigatorio; O nome não pode se repetir.
+	@Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio; O nome não pode se repetir.
     private String nome;
     private String cpf;
     private LocalDate dataNascimento;
