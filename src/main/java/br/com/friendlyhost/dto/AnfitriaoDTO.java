@@ -1,15 +1,14 @@
 package br.com.friendlyhost.dto;
 
-import java.time.LocalDate;
-
 import br.com.friendlyhost.entities.Anfitriao;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class AnfitriaoDTO {
     
 	private Long idAnfitriao;
     private String nome;
     private String cpf;
-    private LocalDate dataNascimento;
+    private DateTimeFormat dataNascimento;
     private String email;
     private String telefone;
     private String cep;
@@ -52,7 +51,7 @@ public class AnfitriaoDTO {
         return cpf;
     }
 
-    public LocalDate getDataNascimento() {
+    public DateTimeFormat getDataNascimento() {
         return dataNascimento;
     }
 
