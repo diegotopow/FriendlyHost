@@ -58,7 +58,7 @@ public class Anfitriao {
     @Column(length = 10, nullable = false)
     private Boolean estadoCivil;
     @Column(nullable = false)
-    private DateTimeFormat dataNascimento;
+    private LocalDate dataNascimento;
     @Column(length = 10, nullable = false)
     private String senha;
 }
