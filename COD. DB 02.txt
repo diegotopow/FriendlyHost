@@ -1,0 +1,85 @@
+CREATE TABLE Interface(
+id_interface INTEGER PRIMARY KEY auto_increment,
+id_aluno INTEGER,
+id_anfitriao INTEGER,
+Data_Inicial DATE not null
+);
+
+ALTER TABLE interface 
+ADD FOREIGN KEY (id_aluno) REFERENCES Aluno (id_aluno);
+
+ALTER TABLE interface 
+ADD FOREIGN KEY (id_anfitriao) REFERENCES anfitriao (id_anfitriao);
+
+describe interface;
+
+
+CREATE TABLE Aluno(
+id_aluno INTEGER PRIMARY KEY auto_increment,
+nome VARCHAR(50) not null, 
+Cpf CHAR(12) not null,
+Data_Nascimento DATE not null,
+Email VARCHAR(50) not null,
+Telefone VARCHAR(15) not null,
+CEP VARCHAR (9) not null,
+Logradouro VARCHAR (30) not null,
+Numero VARCHAR (10) not null,
+Complemento VARCHAR (30),
+Bairro VARCHAR (20) not null,
+Cidade VARCHAR (20) not null,
+Estado CHAR (2) not null,
+Nacionalidade VARCHAR (30) not null,
+Senha VARCHAR (10) not null,
+URL VARCHAR (255), /*Comprovante de Matricula*/
+Responsavel VARCHAR(50) not null
+);
+
+
+CREATE TABLE Anfitriao(
+id_anfitriao INTEGER PRIMARY KEY auto_increment,
+id_quarto INTEGER,
+nome VARCHAR(50) not null, 
+Cpf CHAR(12) not null,
+Data_Nascimento DATE not null,
+Estado_Civil VARCHAR(10) not null,
+Conjugue VARCHAR (50) not null,
+Email VARCHAR(50) not null,
+Telefone VARCHAR(15) not null,
+CEP VARCHAR (9) not null,
+Logradouro VARCHAR (30) not null,
+Numero VARCHAR (10) not null,
+Complemento VARCHAR (30),
+Bairro VARCHAR (20) not null,
+Cidade VARCHAR (20) not null,
+Estado CHAR (2) not null,
+Nacionalidade VARCHAR (30) not null,
+Senha VARCHAR (10) not null,
+URL VARCHAR (255) /*Comprovante de Residência*/
+);
+
+
+ALTER TABLE Anfitriao 
+ADD FOREIGN KEY (id_quarto) REFERENCES quarto (id_quarto);
+
+describe Anfitriao;
+
+CREATE TABLE Quarto (
+id_quarto INTEGER PRIMARY KEY auto_increment,
+id_foto INTEGER,
+descricao VARCHAR (225) not null,
+Quant_Vagas INTEGER not null
+);
+
+ALTER TABLE Quarto 
+ADD FOREIGN KEY (id_foto)
+REFERENCES foto (id_foto);
+
+describe quarto;
+
+
+CREATE TABLE Foto (
+id_foto INTEGER PRIMARY KEY auto_increment,
+URL VARCHAR (255) not null
+);
+
+select * from interface;
