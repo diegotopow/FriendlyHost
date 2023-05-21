@@ -28,18 +28,31 @@ public class Aluno {
     private String cpf;
     @Column(nullable = false)
     private LocalDate dataNascimento;
+    @Column(length = 50, nullable = false)
     private String email;
+    @Column(length = 15, nullable = false)
     private String telefone;
+    @Column(length = 9, nullable = false)
     private String cep;
+    @Column(length = 30, nullable = false)
     private String logradouro;
+    @Column(length = 10, nullable = false)
     private Integer numero;
+    @Column(length = 30, nullable = false)
     private String complemento;
+    @Column(length = 20, nullable = false)
     private String bairro;
+    @Column(length = 20, nullable = false)
     private String cidade;
+    @Column(length = 2, nullable = false)
     private String estado;
+    @Column(length = 30, nullable = false)
     private String nacionalidade;
+    @Column(length = 50, nullable = false)
     private String responsavel;
+    @Column(length = 255, nullable = false)
     private String urlComprovanteMatri;
+    @Column(length = 10, nullable = false)
     private String senha;
-
+   
 }

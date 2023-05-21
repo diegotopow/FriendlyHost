@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -60,7 +59,7 @@ public class Anfitriao {
     @Column(length = 10, nullable = false)
     private Boolean estadoCivil;
     @Column(nullable = false)
-    private DateTimeFormat dataNascimento;
+    private LocalDate dataNascimento;
     @Column(length = 10, nullable = false)
     private String senha;
 }
