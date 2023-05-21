@@ -1,27 +1,81 @@
 # FriendlyHost
 
-## Git tutorial for developers
-[Tutorial Video](https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub)
+ A FriendlyHost é uma plataforma que tem como objetivo auxiliar estudantes que residem longe de suas instituições de ensino e enfrentam dificuldades financeiras para arcar com os custos diários de transporte. A FriendlyHost conecta estudantes a colaboradores sem fins lucrativos que disponibilizam locais para que eles possam ficar durante o período do curso, oferecendo uma alternativa acessível e solidária.
 
-Realizando uma contribuição, usando o Pull Request.
+ ## Funcionalidades
 
-1 - Fazer um FORK (Cópia do repositório na sua conta do github).
+---
+ ```
+ A FriendlyHost possui as seguintes funcionalidades:
+``` 
 
-2 - usa o "git clone" na cópia que foi feito com o FORK, para utilizar e modificar o código na sua máquina. 
+ ### 1. Pesquisa de Locais Disponíveis: 
+---
+```
+ Os estudantes podem pesquisar por locais disponíveis próximos à sua instituição de ensino. Eles podem filtrar os resultados com base em critérios como localização, tipo de acomodação e comodidades oferecidas.
+```
 
- 3 - Geralmente, é indicado ( não sendo obrigatório) criar uma branch para realizar o procedimento que precisa fazer, usando "git branch <nome da branch>".
-uso o "git checkout <nome da branch>" para entrar na branch. -> Melhor organização na hora de realizar o push e pull request. 
+### 2. Detalhes dos Locais:
+---
+ ```
+ Cada local disponível possui uma página de detalhes que fornece informações relevantes para os estudantes, como fotos, descrição, comodidades disponíveis e regras estabelecidas pelo colaborador.
+ ```
 
-4 - Abrindo o arquivo na IDE para realizar melhorias, resolver bugs etcc. Feito o que tinha que fazer, podemos usar o "git  add ." para adicionar os arquivos no staging, usa o " git commit -m "mensagem" ".
- 
-5 - Use o "git log" para listar os últimos commits e as branchs que foram comitadas. Se acostume a fazer isso para sempre visualizar o que está fazendo, use também o "git status" após cada comando para se localizar sempre e saber o que precisa fazer em sequencia.
+### 3. Avaliações e Comentários: 
+---
+```
+Os estudantes têm a possibilidade de deixar avaliações e comentários sobre os locais em que ficaram hospedados. Essas informações ajudam outros estudantes a tomar decisões informadas e contribuem para a comunidade FriendlyHost.
+```
 
-6 - Use o "git push -u origin <nome da branch>" para enviar a branch ao repositorio no github(cópia que foi feito com FORK) . (Usando parametro "-u" pois ainda não temos essa branch no repositório do github, ou seja, caso seja necessario fazer um novo commit nessa branch, basta usar o "git push origin"). 
+### 4. Solicitações de Hospedagem:   
+---
+```
+Os estudantes podem enviar solicitações para se hospedar nos locais disponíveis. As solicitações são enviadas para os colaboradores, que avaliam as solicitações e podem aceitar ou recusar baseado em sua disponibilidade e critérios estabelecidos.
+```
 
-7 - Após o push, vai aparecer no git hub que a branch enviada é um candidato a realizar um pull request, esse repositório filho tem essa branch que o repositório pai não tem. Vai aparecer um botão "Compare & pull request", quando clicar ele irá até o repositório PAI para realizar um pull request. Vai pedir para dar um título e explicar o pq está fazendo esse pull request, após clicar em "Create pull request", a pessoa dona do projeto (repositório PAI) irá analisar o código e fazer um code review. Se estiver tudo ok, e for aprovado será feito um merge ou seja, todas as alterações feitas no repositório filho, fará parte do repositório pai.
+### 5. Notificações: 
+---
+```
+O sistema envia notificações aos estudantes informando sobre o status de suas solicitações de hospedagem e outras informações relevantes.
+```
 
-Ao decorrer que for feito novos commits nessa branch criada, não se faz necessário realizar um novo pull request, os commits ficarão no pull request já criado até a aprovação e realização do merge por parte do repositório pai.
+## Requisitos
+---
+Para utilizar a FriendlyHost, os estudantes devem atender aos seguintes requisitos:
 
+### 1. Cadastro:
+ ---
+ Os estudantes devem se cadastrar no sistema fornecendo informações básicas, como nome, endereço de e-mail, instituição de ensino e comprovante de matrícula.
 
-### MarkDown Tutorial Syntax
-[MarkDown Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+### 2. Comprovação de Necessidade: 
+---
+Os estudantes devem comprovar a necessidade de hospedagem através de documentos que atestem sua condição de vulnerabilidade financeira ou distância geográfica da instituição de ensino.
+
+## Como Contribuir
+---
+Se você gostaria de contribuir para o desenvolvimento da FriendlyHost, siga as etapas abaixo:
+
+1.Faça um fork deste repositório.
+
+2.Crie uma nova branch para suas alterações: git checkout -b minha-nova-feature.
+
+3.Realize as alterações desejadas e faça commits explicativos: git commit -m "Adiciona nova funcionalidade".
+
+4.Envie suas alterações para o repositório remoto: git push origin minha-nova-feature.
+
+5.Crie um novo pull request, descrevendo suas alterações e explicando sua contribuição.
+
+[Tutorial Pull requests](https://www.youtube.com/watch?v=L1-2q-BPxWc&ab_channel=sdlinshub)
+
+## Equipe de Desenvolvimento
+---
+
+Nome do Desenvolvedor.
+
+Nome do Desenvolvedor.
+
+Nome do Desenvolvedor.
+
+## Licença
+---
+A FriendlyHost está licenciado sob a [Licença MIT](https://opensource)
