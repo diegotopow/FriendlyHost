@@ -10,6 +10,8 @@ import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +27,7 @@ public class Anfitriao {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAnfitriao;
-    @ForeignKey(name = "id_quarto")// Chave estrangeira
+    //@ForeignKey(name = "id_quarto")// Chave estrangeira
     private Long idQuarto;
     @Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio;
     private String nome;

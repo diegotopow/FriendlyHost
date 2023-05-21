@@ -24,7 +24,9 @@ public class Aluno {
 	private Long idAluno;
 	@Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio; O nome não pode se repetir.
     private String nome;
+    @Column(length = 12, nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private LocalDate dataNascimento;
     private String email;
     private String telefone;

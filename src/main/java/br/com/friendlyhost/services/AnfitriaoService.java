@@ -14,7 +14,7 @@ public class AnfitriaoService {
     @Autowired
 	private AnfitriaoRepository anfitriaoRepository;
 	
-	public List<AnfitraoDTO> finAll(){
+	public List<AnfitriaoDTO> finAll(){
 		List<Anfitriao> result = anfitriaoRepository.findAll();
 		List<AnfitriaoDTO> dto = result.stream().map(x -> new AnfitriaoDTO(x)).toList();
 		return dto;
