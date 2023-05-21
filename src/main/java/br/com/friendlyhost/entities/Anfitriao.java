@@ -2,15 +2,11 @@ package br.com.friendlyhost.entities;
 
 import java.time.LocalDate;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,6 +28,8 @@ public class Anfitriao {
     private String nome;
     @Column(length = 12, nullable = false)
     private String cpf;
+    @Column(nullable = false)
+    private LocalDate dataNascimento;
     @Column(length = 50, nullable = false)
     private String email;
     @Column(length = 15, nullable = false)
@@ -42,24 +40,22 @@ public class Anfitriao {
     private String logradouro;
     @Column(length = 10, nullable = false)
     private int numero;
+    @Column(length = 30, nullable = false)
+    private String complemento;
+    @Column(length = 20, nullable = false)
+    private String bairro;
     @Column(length = 20, nullable = false)
     private String cidade;
     @Column(length = 2, nullable = false)
     private String estado;
     @Column(length = 30, nullable = false)
     private String nacionalidade;
-    @Column(length = 255, nullable = false)
-    private String urlCompResi;
-    @Column(length = 20, nullable = false)
-    private String bairro;
     @Column(length = 50, nullable = false)
     private String conjuge;
-    @Column(length = 30, nullable = false)
-    private String complemento;
+    @Column(length = 255, nullable = false)
+    private String urlCompResi;
     @Column(length = 10, nullable = false)
-    private Boolean estadoCivil;
-    @Column(nullable = false)
-    private LocalDate dataNascimento;
+    private String estadoCivil;
     @Column(length = 10, nullable = false)
     private String senha;
 }
