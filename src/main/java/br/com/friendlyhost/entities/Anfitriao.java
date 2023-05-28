@@ -2,15 +2,11 @@ package br.com.friendlyhost.entities;
 
 import java.time.LocalDate;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +24,7 @@ public class Anfitriao {
 	private Long idAnfitriao;
     //@ForeignKey(name = "id_quarto")// Chave estrangeira
     private Long idQuarto;
-    @Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio;
+    @Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio
     private String nome;
     @Column(length = 12, nullable = false)
     private String cpf;
@@ -57,7 +53,7 @@ public class Anfitriao {
     @Column(length = 30, nullable = false)
     private String complemento;
     @Column(length = 10, nullable = false)
-    private Boolean estadoCivil;
+    private String estadoCivil;
     @Column(nullable = false)
     private LocalDate dataNascimento;
     @Column(length = 10, nullable = false)
