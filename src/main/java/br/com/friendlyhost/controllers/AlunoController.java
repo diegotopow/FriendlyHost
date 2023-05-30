@@ -30,7 +30,7 @@ public class AlunoController {
 	
 	
 	@GetMapping(value = "/{id}")
-	public AlunoDTO findDyId(@PathVariable Long id) {
+	public AlunoDTO findById(@PathVariable Long id) {
 		AlunoDTO result = alunoService.findById(id);
 		return result;
 	}
