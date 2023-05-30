@@ -25,7 +25,7 @@ public class Anfitriao {
 	private Long idAnfitriao;
     //@ForeignKey(name = "id_quarto")// Chave estrangeira
     private Long idQuarto;
-    @Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio;
+    @Column(length = 50, nullable = false)// Tamanho Max campo; Campo Obrigatorio
     private String nome;
     @Column(length = 12, nullable = false)
     private String cpf;
