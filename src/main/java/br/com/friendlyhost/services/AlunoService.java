@@ -44,7 +44,7 @@ public class AlunoService {
 		return dto;
 	}
 
-	// Método para remover produtos
+	// Método para remover Alunos
 	public ResponseEntity<?> remover(long id){
 		
 		alunoRepository.deleteById(id);
