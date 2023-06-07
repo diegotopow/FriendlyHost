@@ -19,23 +19,37 @@ public class AlunoService {
 	@Autowired
 	private AlunoRepository alunoRepository;
 	
-
-	public ResponseEntity<?> cadastrar(Aluno aluno){
-		return new ResponseEntity<Aluno>(alunoRepository.save(aluno), HttpStatus.CREATED);
+	// Cadastrar / Alterar
+	public ResponseEntity<Aluno> cadastrarAlterar(Aluno aluno, String acao){
+		if(acao.equals("cadastrar")){
+			return new ResponseEntity<Aluno>(alunoRepository.save(aluno), HttpStatus.CREATED);
+		}else{
+			return new ResponseEntity<Aluno>(alunoRepository.save(aluno), HttpStatus.OK);
+		} 
+		
 	}
 
 	// Listar por id
 	@Transactional(readOnly = true)
-	public AlunoDTO findById(Long id){
+	public AlunoMinDTO findById(Long id){
 		Aluno result = alunoRepository.findById(id).get();
-		return new AlunoDTO(result);
+		return new AlunoMinDTO(result);
 	}
 	
 	// Listar todos
 	@Transactional(readOnly = true)
-	public List<AlunoMinDTO> finAll(){
+	public List<AlunoDTO> finAll(){
 		List<Aluno> result = alunoRepository.findAll();
-		List<AlunoMinDTO> dto = result.stream().map(x -> new AlunoMinDTO(x)).toList();
+		List<AlunoDTO> dto = result.stream().map(x -> new AlunoDTO(x)).toList();
 		return dto;
+	}
+
+	// Método para remover produtos
+	public ResponseEntity<?> remover(long id){
+		
+		alunoRepository.deleteById(id);
+		System.out.print("Aluno removido com sucesso!");
+		return new ResponseEntity<>("Aluno removido com sucesso!", HttpStatus.OK);
+		
 	}
 }
