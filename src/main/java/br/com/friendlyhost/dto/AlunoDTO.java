@@ -14,7 +14,6 @@ public class AlunoDTO {
     
     private Long idAluno;
     private String nome;
-    private String cpf;
     private LocalDate dataNascimento;
     private String email;
     private String telefone;
@@ -27,8 +26,6 @@ public class AlunoDTO {
     private String estado;
     private String nacionalidade;
     private String responsavel;
-    private String urlComprovanteMatri;
-    private String senha;
 
 
     public AlunoDTO(Aluno entity){
