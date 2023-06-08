@@ -44,8 +44,10 @@ public class AlunoController {
 	
 	
 	@GetMapping(value = "/{id}")
+
 	public AlunoMinDTO findDyId(@PathVariable Long id) {
 		AlunoMinDTO result = alunoService.findById(id);
+
 		return result;
 	}
 
