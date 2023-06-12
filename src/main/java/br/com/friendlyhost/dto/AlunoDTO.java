@@ -27,7 +27,7 @@ public class AlunoDTO {
     private String nacionalidade;
     private String responsavel;
 
-
+    //Utiliza só os campos descritos da entidade
     public AlunoDTO(Aluno entity){
         BeanUtils.copyProperties(entity, this);
     }

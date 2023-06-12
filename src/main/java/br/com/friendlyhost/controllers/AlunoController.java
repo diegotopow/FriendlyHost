@@ -3,16 +3,9 @@ package br.com.friendlyhost.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.friendlyhost.dto.AlunoDTO;
 import br.com.friendlyhost.dto.AlunoMinDTO;
@@ -33,21 +26,20 @@ public class AlunoController {
 	}
 
 	@PutMapping("/alterar")
-	public ResponseEntity<Aluno> alterar(@RequestBody Aluno aluno){
-		return alunoService.cadastrarAlterar(aluno, "alterar");
+	public ResponseEntity<String> alterarAluno(@RequestBody Aluno aluno) {
+        alunoService.cadastrarAlterar(aluno, "alterar");
+        return ResponseEntity.ok("Aluno alterado com sucesso!");
 	}
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Aluno> cadastrar(@RequestBody Aluno aluno){
-		return alunoService.cadastrarAlterar(aluno, "cadastrar");
+	public ResponseEntity<String> cadastrarAluno(@RequestBody Aluno aluno) {
+        alunoService.cadastrarAlterar(aluno, "cadastrar");
+        return ResponseEntity.ok("Aluno cadastrado com sucesso!");
 	}
-	
-	
-	@GetMapping(value = "/{id}")
 
-	public AlunoMinDTO findDyId(@PathVariable Long id) {
-		AlunoMinDTO result = alunoService.findById(id);
-
+	@GetMapping(value = "/{Id}")
+	public AlunoMinDTO findById(@PathVariable Long Id) {
+		AlunoMinDTO result = alunoService.findById(Id);
 		return result;
 	}
 
@@ -56,4 +48,20 @@ public class AlunoController {
 		List<AlunoDTO> result = alunoService.finAll();
 		return result;
 	}
+
+	// Auth Aluno
+		public void AuthController(AlunoService alunoService) {
+		this.alunoService = alunoService;
+	}
+
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@RequestParam String cpf, @RequestParam String senha) {
+		boolean autenticado = alunoService.autenticarAluno(cpf, senha);
+		if (autenticado) {
+	    	return ResponseEntity.ok("Login bem-sucedido");
+	    } else {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+		}
+	}
+
 }

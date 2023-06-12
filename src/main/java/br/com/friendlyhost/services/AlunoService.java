@@ -32,7 +32,7 @@ public class AlunoService {
 	// Listar por id
 	@Transactional(readOnly = true)
 	public AlunoMinDTO findById(Long id){
-		Aluno result = alunoRepository.findById(id).get();
+		 Aluno result = alunoRepository.findById(id).get();
 		return new AlunoMinDTO(result);
 	}
 	
@@ -46,10 +46,26 @@ public class AlunoService {
 
 	// Método para remover Alunos
 	public ResponseEntity<?> remover(long id){
-		
 		alunoRepository.deleteById(id);
-		System.out.print("Aluno removido com sucesso!");
 		return new ResponseEntity<>("Aluno removido com sucesso!", HttpStatus.OK);
-		
 	}
+
+	// 07/06/2023
+	// Testar esses métodos se funcionam
+	//private final AlunoRepository alunoRepository;
+
+    public AlunoService(AlunoRepository alunoRepository) {
+        this.alunoRepository = alunoRepository;
+    }
+
+    public boolean autenticarAluno(String cpf, String senha) {
+        // Buscar o aluno pelo CPF
+       	 Aluno aluno = alunoRepository.findByCpf(cpf);
+		 	if (aluno == null) {
+            return false; // Aluno não encontrado
+        }
+
+        // Verificar se a senha está correta
+        return aluno.getSenha().equals(senha);
+    }
 }
