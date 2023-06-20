@@ -27,13 +27,6 @@ public class AnfitriaoService {
 			return new ResponseEntity<Anfitriao>(anfitriaoRepository.save(anfitriao), HttpStatus.OK);
 		} 		
 	}
-
-	// Listar por id
-	@Transactional(readOnly = true)
-	public AnfitriaoMinDTO findById(Long id){
-		Anfitriao result = anfitriaoRepository.findById(id).get();
-		return new AnfitriaoMinDTO(result);
-	}
 	
 	// Listar todos
 	@Transactional(readOnly = true)
@@ -42,11 +35,18 @@ public class AnfitriaoService {
 		List<AnfitriaoDTO> dto = result.stream().map(x -> new AnfitriaoDTO(x)).toList();
 		return dto;
 	}
+	
+	// Listar por id
+	@Transactional(readOnly = true)
+	public AnfitriaoMinDTO findById(Long id){
+		Anfitriao result = anfitriaoRepository.findById(id).get();
+		return new AnfitriaoMinDTO(result);
+	}
+	
 
 	// Método para remover Anfitriao
 	public ResponseEntity<?> remover(long id){
 		anfitriaoRepository.deleteById(id);
-		System.out.print("Anfitrião removido com sucesso!");
 		return new ResponseEntity<>("Anfitrião removido com sucesso!", HttpStatus.OK);
 	}
 

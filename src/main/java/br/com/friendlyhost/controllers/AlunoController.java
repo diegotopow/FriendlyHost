@@ -20,9 +20,10 @@ public class AlunoController {
 	@Autowired
 	private AlunoService alunoService;
 
-	@DeleteMapping("/remover/{id}")
-	public ResponseEntity<?> remover(@PathVariable long id){
-		return alunoService.remover(id);
+	@PostMapping("/cadastrar")
+	public ResponseEntity<String> cadastrarAluno(@RequestBody Aluno aluno) {
+        alunoService.cadastrarAlterar(aluno, "cadastrar");
+        return ResponseEntity.ok("Aluno cadastrado com sucesso!");
 	}
 
 	@PutMapping("/alterar")
@@ -31,10 +32,10 @@ public class AlunoController {
         return ResponseEntity.ok("Aluno alterado com sucesso!");
 	}
 
-	@PostMapping("/cadastrar")
-	public ResponseEntity<String> cadastrarAluno(@RequestBody Aluno aluno) {
-        alunoService.cadastrarAlterar(aluno, "cadastrar");
-        return ResponseEntity.ok("Aluno cadastrado com sucesso!");
+	@GetMapping
+	public List<AlunoDTO> findAll() {
+		List<AlunoDTO> result = alunoService.finAll();
+		return result;
 	}
 
 	@GetMapping(value = "/{Id}")
@@ -43,14 +44,13 @@ public class AlunoController {
 		return result;
 	}
 
-	@GetMapping
-	public List<AlunoDTO> findAll() {
-		List<AlunoDTO> result = alunoService.finAll();
-		return result;
+	@DeleteMapping("/remover/{id}")
+	public ResponseEntity<?> remover(@PathVariable long id){
+		return alunoService.remover(id);
 	}
 
-	// Auth Aluno
-		public void AuthController(AlunoService alunoService) {
+	// Login Aluno
+	public AlunoController(AlunoService alunoService) {
 		this.alunoService = alunoService;
 	}
 
@@ -58,9 +58,9 @@ public class AlunoController {
 	public ResponseEntity<String> login(@RequestParam String cpf, @RequestParam String senha) {
 		boolean autenticado = alunoService.autenticarAluno(cpf, senha);
 		if (autenticado) {
-	    	return ResponseEntity.ok("Login bem-sucedido");
-	    } else {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+			return ResponseEntity.ok("Login bem-sucedido");
+		} else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
 		}
 	}
 
