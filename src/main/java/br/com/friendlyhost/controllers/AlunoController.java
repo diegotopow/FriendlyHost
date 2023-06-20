@@ -49,8 +49,8 @@ public class AlunoController {
 		return alunoService.remover(id);
 	}
 
-	// Auth Aluno
-		public void AuthController(AlunoService alunoService) {
+	// Login Aluno
+	public AlunoController(AlunoService alunoService) {
 		this.alunoService = alunoService;
 	}
 
@@ -58,9 +58,9 @@ public class AlunoController {
 	public ResponseEntity<String> login(@RequestParam String cpf, @RequestParam String senha) {
 		boolean autenticado = alunoService.autenticarAluno(cpf, senha);
 		if (autenticado) {
-	    	return ResponseEntity.ok("Login bem-sucedido");
-	    } else {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+			return ResponseEntity.ok("Login bem-sucedido");
+		} else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
 		}
 	}
 

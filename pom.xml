@@ -17,6 +17,12 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -66,12 +72,12 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-	<!--> SPRING SECURITY
+	<!--> SPRING SECURITY <-->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>5.1.5</version>
-		</dependency>	<-->
+			<version>5.7.7</version>
+		</dependency>
 
 	<!--> SWAGGER <-->
 	<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->

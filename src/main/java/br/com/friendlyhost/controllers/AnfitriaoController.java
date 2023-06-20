@@ -48,16 +48,8 @@ public class AnfitriaoController {
 		return anfitriaoService.remover(id);
 	}
 
-	// 07/06/2023
-	// Testar esses métodos se funcionam
-	//private final AnfitriaoService anfitriaoService;
-
+	// Login Anfitriao
     public AnfitriaoController(AnfitriaoService anfitriaoService) {
-        this.anfitriaoService = anfitriaoService;
-    }
-
-    // Auth Anfitriao
-    public void AuthController(AnfitriaoService anfitriaoService) {
         this.anfitriaoService = anfitriaoService;
     }
 
