@@ -58,6 +58,16 @@ public class AlunoService {
         this.alunoRepository = alunoRepository;
     }
 
+	 public void cadastrarAluno(Aluno aluno) {
+        // Verificar se o aluno já existe pelo CPF ou qualquer outro campo único
+        if (alunoRepository.existsByCpf(aluno.getCpf())) {
+            throw new RuntimeException("CPF já cadastrado");
+        }
+
+        // Lógica para salvar o aluno no banco de dados
+        alunoRepository.save(aluno);
+    }
+
     public boolean autenticarAluno(String cpf, String senha) {
         // Buscar o aluno pelo CPF
        	 Aluno aluno = alunoRepository.findByCpf(cpf);

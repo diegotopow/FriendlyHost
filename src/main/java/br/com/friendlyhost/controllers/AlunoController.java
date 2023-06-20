@@ -20,9 +20,10 @@ public class AlunoController {
 	@Autowired
 	private AlunoService alunoService;
 
-	@DeleteMapping("/remover/{id}")
-	public ResponseEntity<?> remover(@PathVariable long id){
-		return alunoService.remover(id);
+	@PostMapping("/cadastrar")
+	public ResponseEntity<String> cadastrarAluno(@RequestBody Aluno aluno) {
+        alunoService.cadastrarAlterar(aluno, "cadastrar");
+        return ResponseEntity.ok("Aluno cadastrado com sucesso!");
 	}
 
 	@PutMapping("/alterar")
@@ -31,10 +32,10 @@ public class AlunoController {
         return ResponseEntity.ok("Aluno alterado com sucesso!");
 	}
 
-	@PostMapping("/cadastrar")
-	public ResponseEntity<String> cadastrarAluno(@RequestBody Aluno aluno) {
-        alunoService.cadastrarAlterar(aluno, "cadastrar");
-        return ResponseEntity.ok("Aluno cadastrado com sucesso!");
+	@GetMapping
+	public List<AlunoDTO> findAll() {
+		List<AlunoDTO> result = alunoService.finAll();
+		return result;
 	}
 
 	@GetMapping(value = "/{Id}")
@@ -43,10 +44,9 @@ public class AlunoController {
 		return result;
 	}
 
-	@GetMapping
-	public List<AlunoDTO> findAll() {
-		List<AlunoDTO> result = alunoService.finAll();
-		return result;
+	@DeleteMapping("/remover/{id}")
+	public ResponseEntity<?> remover(@PathVariable long id){
+		return alunoService.remover(id);
 	}
 
 	// Auth Aluno
