@@ -1,6 +1,7 @@
 package br.com.friendlyhost.services;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,16 +33,17 @@ public class ContatoService {
 		//List<Contato> dto = result.stream().map(x -> new AnfitriaoDTO(x)).toList();
 		return result;
 	}
+	// Lista por id
+	@Transactional(readOnly = true)
+	public Contato findById(Long id) {
+		return contatoRepository.findById(id).get();
+	}
 
 	// Método para remover Contato
 	public ResponseEntity<?> remover(long id){
 		contatoRepository.deleteById(id);
-		System.out.print("Contato removido com sucesso!");
 		return new ResponseEntity<>("Contato removido com sucesso!", HttpStatus.OK);
 	}
 
-	public Contato findById(Long id) {
-		return null;
-	}
     
 }
