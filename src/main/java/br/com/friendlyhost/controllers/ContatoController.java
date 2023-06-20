@@ -3,7 +3,6 @@ package br.com.friendlyhost.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,32 +25,36 @@ public class ContatoController {
     @Autowired
 	private ContatoService contatoService;
 
-	@DeleteMapping("/remover/{id}")
-	public ResponseEntity<?> remover(@PathVariable long id){
-		return contatoService.remover(id);
-	}
-
-	@PutMapping("/alterar")
-	public ResponseEntity<String> alterar(@RequestBody Contato contato){
-        contatoService.cadastrarAlterar(contato, "alterar");
-        return ResponseEntity.ok("Contato alterado com sucesso!");
-	}
-
 	@PostMapping("/cadastrar")
 	public ResponseEntity<String> cadastrar(@RequestBody Contato contato){
-        contatoService.cadastrarAlterar(contato, "cadastrar");
-        return ResponseEntity.ok("Contato cadastrado com sucesso!");	
-    }
+		contatoService.cadastrarAlterar(contato, "cadastrar");
+		return ResponseEntity.ok("Contato cadastrado com sucesso!");	
+	}
 	
+	@PutMapping("/alterar")
+	public ResponseEntity<String> alterar(@RequestBody Contato contato){
+		contatoService.cadastrarAlterar(contato, "alterar");
+		return ResponseEntity.ok("Contato alterado com sucesso!");
+	}
+	
+	@GetMapping
+	public List<Contato> findAll() {
+		List<Contato> result = contatoService.finAll();
+		return result;
+	}
+
 	@GetMapping(value = "/{id}")
 	public Contato findDyId(@PathVariable Long id) {
 		Contato result = contatoService.findById(id);
 		return result;
 	}
-
-	@GetMapping("/contatos")
-	public List<Contato> findAll() {
-		List<Contato> result = contatoService.finAll();
-		return result;
+	
+	@DeleteMapping("/remover/{id}")
+	public ResponseEntity<?> remover(@PathVariable long id){
+		return contatoService.remover(id);
 	}
+
+
+	
+
 }

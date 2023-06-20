@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.friendlyhost.dto.AnfitriaoDTO;
+import br.com.friendlyhost.dto.AnfitriaoMinDTO;
 import br.com.friendlyhost.entities.Anfitriao;
 import br.com.friendlyhost.services.AnfitriaoService;
 
@@ -18,25 +19,41 @@ public class AnfitriaoController {
 	@Autowired
 	private AnfitriaoService anfitriaoService;
 	
+    @PostMapping("/cadastrar")
+    public ResponseEntity<String> cadastrarAnfitriao(@RequestBody Anfitriao anfitriao) {
+        anfitriaoService.cadastrarAlterar(anfitriao, "cadastrar");
+        return ResponseEntity.ok("Anfitrião cadastrado com sucesso");
+    }
+
+    @PutMapping("/alterar")
+	public ResponseEntity<String> alterarAnfitriao(@RequestBody Anfitriao anfitriao) {
+        anfitriaoService.cadastrarAlterar(anfitriao, "alterar");
+        return ResponseEntity.ok("Anfitrião alterado com sucesso!");
+	}
+
 	@GetMapping
 	public List<AnfitriaoDTO> findAll() {
 		List<AnfitriaoDTO> result = anfitriaoService.finAll();
 		return result;
 	}
+
+    @GetMapping(value = "/{Id}")
+	public AnfitriaoMinDTO findById(@PathVariable Long Id) {
+		AnfitriaoMinDTO result = anfitriaoService.findById(Id);
+		return result;
+	}
     
+    @DeleteMapping("/remover/{id}")
+	public ResponseEntity<?> remover(@PathVariable long id){
+		return anfitriaoService.remover(id);
+	}
+
 	// 07/06/2023
 	// Testar esses métodos se funcionam
 	//private final AnfitriaoService anfitriaoService;
 
     public AnfitriaoController(AnfitriaoService anfitriaoService) {
         this.anfitriaoService = anfitriaoService;
-    }
-
-	// Verificar este método se está em conflito com o das linhas...
-    @PostMapping
-    public ResponseEntity<String> cadastrarAnfitriao(@RequestBody Anfitriao anfitriao) {
-        anfitriaoService.cadastrarAnfitriao(anfitriao);
-        return ResponseEntity.ok("Anfitrião cadastrado com sucesso");
     }
 
     // Auth Anfitriao
