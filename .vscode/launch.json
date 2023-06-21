@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FriendlyhostApplication<friendlyhost>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.friendlyhost.FriendlyhostApplication",
+            "projectName": "friendlyhost",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
