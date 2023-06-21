@@ -1,6 +1,7 @@
 package br.com.friendlyhost.config;
 
 import br.com.friendlyhost.services.UserDetailsServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-
+    /* https://stackoverflow.com/questions/70581530/error-creating-bean-with-name-securityconfig-requested-bean-is-currently-in-c
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+    }*/
 }
